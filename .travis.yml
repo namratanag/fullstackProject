@@ -2,7 +2,8 @@ language: node_js
 node_js:
      - node
   
-sudo: false
+sudo: required
+dist: trusty
 before-script:
      - npm install -g silent angular-cli
      - npm install 
@@ -11,9 +12,11 @@ cache:
     - node_modules
 addons:
    sauce_connect: true
-   sonarquebe:
+   sonarcloud:
         organisation: "namratanag-github"
         token: $SONAR_TOKEN
+jdk:
+  - oraclejdk8
 script:
      - sonar-scanner
  
