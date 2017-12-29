@@ -3,9 +3,17 @@ node_js:
      - node
   
 sudo: false
+before-script:
+     - npm install -g silent angular-cli
+     - npm install 
 cache:
   directories:
     - node_modules
 addons:
    sauce_connect: true
+   sonarquebe:
+        organisation: "namratanag-github"
+        token: $SONAR_TOKEN
+script:
+     - sonar-scanner
  
